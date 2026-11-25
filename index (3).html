@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d19">
+  <meta name="description" content="NusaTunnel — hubungkan aplikasi, API, dan layanan Anda dengan mudah.">
+  <title>NusaTunnel — Connect anything, anywhere</title>
+  <style>
+    :root{--bg:#080d19;--panel:#101a2b;--panel2:#0c1423;--text:#f4f7ff;--muted:#a6b1c5;--blue:#5c8cff;--cyan:#61d8f2;--line:rgba(160,185,230,.16);--max:1160px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#17305a 0,transparent 48%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:800;letter-spacing:-.6px}.logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#06101e;font-weight:900;box-shadow:0 0 28px #5c8cff55}
+    .links{display:flex;gap:30px;color:#c1cbe0;font-size:14px}.links a:hover{color:white}.nav-actions{display:flex;align-items:center;gap:17px;font-size:14px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:9px;font-weight:700;font-size:14px;transition:.2s;border:1px solid transparent;cursor:pointer}.btn-primary{background:linear-gradient(110deg,#6b8dff,#55c9ed);color:#07101e;box-shadow:0 8px 30px #568cff33}.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn-ghost{border-color:var(--line);color:#e7efff}.btn-ghost:hover{background:#ffffff0c}
+    .hero{text-align:center;padding:105px 0 78px}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid #5c8cff55;border-radius:99px;color:#bcd0ff;background:#5c8cff12;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.pulse{width:7px;height:7px;border-radius:50%;background:#63e6be;box-shadow:0 0 12px #63e6be}
+    h1{font-size:clamp(42px,7vw,78px);line-height:1.04;letter-spacing:-.065em;max-width:900px;margin:25px auto 20px;font-weight:800}h1 span{background:linear-gradient(100deg,#fff 15%,#8db4ff 55%,#64d8ed);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:690px;margin:0 auto;color:var(--muted);font-size:18px}.hero-buttons{display:flex;gap:12px;justify-content:center;margin-top:31px;flex-wrap:wrap}.hero-note{font-size:12px!important;margin-top:16px!important;color:#8190aa!important}
+    .terminal{max-width:790px;margin:58px auto 0;text-align:left;border:1px solid #8aa9e633;background:#09111f;border-radius:15px;overflow:hidden;box-shadow:0 25px 90px #0008,0 0 50px #407aff12}.term-top{height:43px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 15px;gap:7px;color:#8998b3;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:#52617b}.term-title{margin-left:8px}.term-body{padding:23px 25px;font:14px/2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#dce7ff}.prompt{color:#69d9bb}.cmd{color:#9fc0ff}.comment{color:#71819d}.url{color:#67d7ed}
+    section{padding:78px 0}.section-head{text-align:center;max-width:690px;margin:0 auto 42px}.kicker{color:#79b9ff;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.15em}.section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.13;letter-spacing:-.045em;margin:12px 0}.section-head p{color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,#142139aa,#0d1626);border-radius:15px;min-height:210px}.card:hover{border-color:#6c9aff77;transform:translateY(-3px);transition:.2s}.ico{width:42px;height:42px;border-radius:12px;background:#5c8cff1c;border:1px solid #5c8cff3c;display:grid;place-items:center;color:#8cb5ff;font-size:20px}.card h3{margin:18px 0 7px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.split h2{font-size:clamp(31px,4vw,46px);line-height:1.13;letter-spacing:-.045em;margin:12px 0}.split p{color:var(--muted)}.checks{list-style:none;padding:0;margin:22px 0}.checks li{margin:12px 0;color:#d6e0f2}.checks li:before{content:"✓";color:#6de0bd;font-weight:900;margin-right:11px}
+    .feature-panel{border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#13233c,#0b1321);padding:27px;box-shadow:0 20px 70px #0005}.panel-label{color:#8293b2;font-size:12px;text-transform:uppercase;letter-spacing:.12em}.route{display:flex;align-items:center;gap:12px;margin:23px 0}.node{flex:1;padding:15px 12px;text-align:center;border:1px solid #6e9cff55;background:#5c8cff12;border-radius:11px;font-size:13px}.arrow{color:#7aa8ff}.status{display:inline-block;color:#69e2b9;font-size:11px;margin-top:5px}
+    .cta{border:1px solid #6a94ff55;border-radius:20px;padding:55px 25px;text-align:center;background:radial-gradient(ellipse at 50% 0,#3159a044,transparent 65%),#101a2b}.cta h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.04em;margin:0 0 10px}.cta p{color:var(--muted);margin:0 0 25px}
+    footer{border-top:1px solid var(--line);padding:30px 0;color:#8d9bb3;font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot-links{display:flex;gap:20px}
+
+    .link-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .link-card{display:flex;align-items:center;gap:14px;padding:17px 18px;border:1px solid var(--line);background:linear-gradient(145deg,#142139aa,#0d1626);border-radius:13px;transition:.2s}
+    .link-card:hover{border-color:#6c9aff88;transform:translateY(-2px);background:#172744}
+    .platform-icon{width:42px;height:42px;flex:0 0 42px;border-radius:12px;display:grid;place-items:center;background:#5c8cff20;color:#a9c5ff;font-weight:900;font-size:17px}
+    .link-card strong{display:block;font-size:14px}
+    .link-card small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+    .link-arrow{margin-left:auto;color:#8fb3ff;font-size:18px}
+    @media(max-width:800px){.link-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.link-grid{grid-template-columns:1fr}}
+
+    .menu{display:none;background:none;color:white;border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:18px}
+    @media(max-width:800px){.links{display:none;position:absolute;top:78px;left:0;right:0;padding:20px 25px;background:#0c1423;border-bottom:1px solid var(--line);flex-direction:column;gap:16px}.links.open{display:flex}.menu{display:block}.nav-actions .login{display:none}.grid{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr;gap:28px}.hero{padding:78px 0 55px}}
+    @media(max-width:560px){.wrap{width:min(100% - 30px,var(--max))}.nav{height:68px}.links{top:68px}.brand{font-size:18px}.grid{grid-template-columns:1fr}.hero p{font-size:16px}.term-body{font-size:11px;padding:17px 14px}.route{gap:6px}.node{font-size:11px;padding:12px 5px}.hero{padding-top:65px}section{padding:58px 0}.nav-actions{gap:9px}.nav-actions .btn{padding:9px 11px;font-size:12px}}
+  </style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="#"><span class="logo">N</span><span>NusaTunnel</span></a>
+  <nav class="links" id="navLinks"><a href="#produk">Produk</a><a href="#cara-kerja">Cara kerja</a><a href="#keamanan">Keamanan</a><a href="#harga">Harga</a><a href="#dokumentasi">Dokumentasi</a><a href="#musik">Musik</a><a href="#media-sosial">Media sosial</a></nav>
+  <div class="nav-actions"><a class="login" href="#kontak">Masuk</a><a class="btn btn-primary" href="#mulai">Mulai sekarang ↗</a><button class="menu" id="menuBtn" aria-label="Buka menu">☰</button></div>
+</header>
+<main>
+  <div class="wrap hero">
+    <div class="eyebrow"><span class="pulse"></span> Infrastruktur koneksi untuk developer</div>
+    <h1>Hubungkan aplikasi Anda.<br><span>Di mana saja.</span></h1>
+    <p>Bangun, uji, dan hubungkan layanan web dengan alur kerja yang lebih sederhana. Satu tempat untuk mengelola koneksi aplikasi dan API Anda.</p>
+    <div class="hero-buttons"><a class="btn btn-primary" href="#mulai">Mulai gratis ↗</a><a class="btn btn-ghost" href="#produk">Jelajahi produk</a></div>
+    <p class="hero-note">Dibuat untuk developer, tim produk, dan pembangun aplikasi.</p>
+    <div class="terminal">
+      <div class="term-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="term-title">terminal — nusatunnel</span></div>
+      <div class="term-body"><div><span class="comment"># Contoh alur penggunaan CLI (ilustrasi)</span></div><div><span class="prompt">$</span> <span class="cmd">nusatunnel connect --port 3000</span></div><div><span class="prompt">✓</span> Connection profile created</div><div><span class="prompt">→</span> Local service: <span class="url">http://localhost:3000</span></div><div><span class="prompt">→</span> Public endpoint: <span class="url">https://your-app.example.com</span></div></div>
+    </div>
+  </div>
+
+  <section id="produk">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Satu platform</div><h2>Lebih dari sekadar koneksi.</h2><p>Komponen yang membantu Anda mengembangkan, menguji, dan mengelola aplikasi dari satu alur kerja.</p></div>
+      <div class="grid">
+        <article class="card"><div class="ico">↗</div><h3>Secure Tunnels</h3><p>Rancang akses ke layanan lokal atau jaringan privat melalui koneksi yang terkontrol.</p></article>
+        <article class="card"><div class="ico">⌘</div><h3>API Gateway</h3><p>Satukan jalur akses API dan kelola aturan routing dari satu titik.</p></article>
+        <article class="card"><div class="ico">◉</div><h3>Traffic Inspector</h3><p>Pahami alur permintaan dan respons untuk membantu proses pengujian aplikasi.</p></article>
+        <article class="card"><div class="ico">⛨</div><h3>Access Control</h3><p>Tambahkan lapisan autentikasi dan kebijakan akses pada layanan Anda.</p></article>
+        <article class="card"><div class="ico">⌁</div><h3>Webhook Testing</h3><p>Uji integrasi webhook dan periksa permintaan masuk selama pengembangan.</p></article>
+        <article class="card"><div class="ico">▦</div><h3>Observability</h3><p>Lihat aktivitas koneksi dan temukan masalah lebih cepat dengan informasi yang jelas.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="cara-kerja">
+    <div class="wrap split">
+      <div><div class="kicker">Alur sederhana</div><h2>Dari lingkungan lokal menuju akses yang terkelola.</h2><p>Rancang pengalaman developer yang ringkas: hubungkan layanan, tentukan aturan, lalu pantau aktivitasnya.</p><ul class="checks"><li>Alur kerja yang mudah dipahami</li><li>Pengelolaan endpoint dalam satu dashboard</li><li>Siap dikembangkan bersama backend Anda</li></ul><a class="btn btn-primary" href="#dokumentasi">Lihat dokumentasi ↗</a></div>
+      <div class="feature-panel"><div class="panel-label">Ilustrasi alur koneksi</div><div class="route"><div class="node">Aplikasi lokal<br><span class="status">● Port 3000</span></div><div class="arrow">⟶</div><div class="node">Gateway<br><span class="status">● Aturan akses</span></div><div class="arrow">⟶</div><div class="node">Pengguna<br><span class="status">● Endpoint</span></div></div><p style="font-size:13px;color:#91a1bd;margin-bottom:0">Diagram ini hanya visualisasi konsep. Fitur koneksi sebenarnya memerlukan layanan backend dan infrastruktur server.</p></div>
+    </div>
+  </section>
+
+  <section id="keamanan">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Dibangun dengan perhatian</div><h2>Kontrol dan visibilitas sejak awal.</h2><p>Rancang keamanan sebagai bagian dari alur koneksi, bukan tambahan di akhir proses.</p></div>
+      <div class="grid">
+        <article class="card"><div class="ico">♢</div><h3>Autentikasi</h3><p>Siapkan mekanisme verifikasi identitas sebelum layanan dapat diakses.</p></article>
+        <article class="card"><div class="ico">⌖</div><h3>Aturan akses</h3><p>Batasi akses berdasarkan kebutuhan aplikasi dan kebijakan tim.</p></article>
+        <article class="card"><div class="ico">▤</div><h3>Log aktivitas</h3><p>Bangun jejak aktivitas agar pengelolaan dan pemeriksaan lebih mudah.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="harga">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Paket layanan</div><h2>Mulai dari kebutuhan Anda.</h2><p>Bagian harga ini merupakan contoh tampilan. Sesuaikan paket dan biaya setelah layanan backend tersedia.</p></div>
+      <div class="grid">
+        <article class="card"><div class="kicker">Starter</div><h3>Gratis</h3><p>Untuk eksplorasi konsep dan uji coba awal.</p><ul class="checks"><li>Halaman informasi</li><li>Dokumentasi dasar</li><li>Demo antarmuka</li></ul><a class="btn btn-ghost" href="#kontak">Pelajari</a></article>
+        <article class="card" style="border-color:#648fff88"><div class="kicker">Developer</div><h3>Hubungi kami</h3><p>Untuk kebutuhan pengembangan dan integrasi.</p><ul class="checks"><li>Diskusi kebutuhan</li><li>Rencana integrasi</li><li>Dukungan implementasi</li></ul><a class="btn btn-primary" href="#kontak">Hubungi</a></article>
+        <article class="card"><div class="kicker">Business</div><h3>Kustom</h3><p>Untuk tim dan organisasi dengan kebutuhan khusus.</p><ul class="checks"><li>Konfigurasi khusus</li><li>Kontrol tim</li><li>Perencanaan skala</li></ul><a class="btn btn-ghost" href="#kontak">Diskusikan</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="mulai"><div class="wrap"><div class="cta"><div class="kicker">Mulai bangun</div><h2>Siap membawa ide Anda online?</h2><p>Mulai dengan halaman ini, lalu hubungkan ke backend dan layanan yang Anda bangun.</p><a class="btn btn-primary" href="#kontak">Mulai sekarang ↗</a></div></div></section>
+  <section id="dokumentasi" style="padding-top:0"><div class="wrap" style="text-align:center"><div class="section-head"><div class="kicker">Dokumentasi</div><h2>Semua hal penting, dalam satu tempat.</h2><p>Tambahkan panduan instalasi, referensi API, tutorial, dan status layanan ketika backend Anda siap.</p></div><a class="btn btn-ghost" href="#kontak">Dokumentasi segera hadir</a></div></section>
+
+  <section id="musik">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Dengarkan karya</div><h2>Roman Yosi di platform musik.</h2><p>Temukan musik Roman Yosi melalui layanan streaming dan kanal YouTube resmi.</p></div>
+      <div class="link-grid">
+        <a class="link-card" href="https://open.spotify.com/artist/3j2wzsjuf9JcBgRZxP44dJ?si=OqLOqjLcTROTYX29evN3uQ" target="_blank" rel="noopener noreferrer"><span class="platform-icon">S</span><span><strong>Spotify</strong><small>Dengarkan di Spotify</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://www.youtube.com/@romanyosimusic" target="_blank" rel="noopener noreferrer"><span class="platform-icon">▶</span><span><strong>YouTube Music &amp; Video</strong><small>Roman Yosi Music</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://www.deezer.com/en/artist/392401791" target="_blank" rel="noopener noreferrer"><span class="platform-icon">D</span><span><strong>Deezer</strong><small>Profil artis Roman Yosi</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://music.apple.com/us/artist/roman-yosi/1896488554" target="_blank" rel="noopener noreferrer"><span class="platform-icon">♪</span><span><strong>Apple Music</strong><small>Musik Roman Yosi</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://tidal.com/browse/artist/79979785" target="_blank" rel="noopener noreferrer"><span class="platform-icon">T</span><span><strong>TIDAL</strong><small>Profil artis Roman Yosi</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://music.amazon.com/artists/B0H2KWB2L3/roman-yosi" target="_blank" rel="noopener noreferrer"><span class="platform-icon">a</span><span><strong>Amazon Music</strong><small>Dengarkan karya musik</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://www.shazam.com/id-id/artist/roman-yosi/1896488554" target="_blank" rel="noopener noreferrer"><span class="platform-icon">✦</span><span><strong>Shazam</strong><small>Temukan dan kenali musik</small></span><span class="link-arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="media-sosial">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Terhubung</div><h2>Ikuti Roman Yosi.</h2><p>Kunjungi website resmi dan akun media sosial Roman Yosi melalui tautan berikut.</p></div>
+      <div class="link-grid">
+        <a class="link-card" href="https://roman-yosi.github.io/roman-yosi-music/" target="_blank" rel="noopener noreferrer"><span class="platform-icon">⌂</span><span><strong>Website Resmi</strong><small>roman-yosi.github.io</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://www.instagram.com/roman.yosi?gwpx=MTF0eWQwamhobTN0Yw==" target="_blank" rel="noopener noreferrer"><span class="platform-icon">◎</span><span><strong>Instagram</strong><small>@roman.yosi</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://www.tiktok.com/@romanyosi?_r=1&_t=ZS-9BcWo7wDSNi" target="_blank" rel="noopener noreferrer"><span class="platform-icon">♪</span><span><strong>TikTok</strong><small>@romanyosi</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://twitter.com/roman_yosi" target="_blank" rel="noopener noreferrer"><span class="platform-icon">𝕏</span><span><strong>X (Twitter)</strong><small>@roman_yosi</small></span><span class="link-arrow">↗</span></a>
+        <a class="link-card" href="https://www.facebook.com/share/19xoPAHXgx/" target="_blank" rel="noopener noreferrer"><span class="platform-icon">f</span><span><strong>Facebook</strong><small>Halaman Roman Yosi</small></span><span class="link-arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" style="padding-top:0"><div class="wrap" style="text-align:center"><div class="section-head"><div class="kicker">Kontak</div><h2>Mari terhubung melalui Instagram.</h2><p>Untuk pertanyaan dan informasi, silakan kirim pesan melalui akun Instagram resmi Roman Yosi.</p></div><a class="btn btn-primary" href="https://www.instagram.com/roman.yosi?gwpx=MTF0eWQwamhobTN0Yw==" target="_blank" rel="noopener noreferrer">Hubungi Roman Yosi di Instagram ↗</a></div></section>
+</main>
+<footer><div class="wrap foot"><div>© <span id="year"></span> NusaTunnel. Dibuat untuk developer.</div><div class="foot-links"><a href="#produk">Produk</a><a href="#keamanan">Keamanan</a><a href="#musik">Musik</a><a href="#media-sosial">Media sosial</a><a href="#kontak">Kontak</a></div></div></footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const menuBtn=document.getElementById('menuBtn'), navLinks=document.getElementById('navLinks');
+  menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+</script>
+</body>
+</html>
